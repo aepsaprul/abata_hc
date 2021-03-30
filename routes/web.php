@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MasterKaryawanController;
 
 /*
@@ -17,6 +18,9 @@ use App\Http\Controllers\MasterKaryawanController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/client', [ClientController::class, 'index'])->name('client');
+Route::get('/client/form-syarat', [ClientController::class, 'formSyarat'])->name('client.form.syarat');
 
 Auth::routes();
 
